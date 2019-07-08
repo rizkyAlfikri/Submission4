@@ -1,56 +1,78 @@
 package com.dicoding.picodiploma.submission4.viewmodel;
 
-import android.util.Log;
+import android.app.Application;
 
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-import com.dicoding.picodiploma.submission4.models.moviemodels.MovieResponse;
+import com.dicoding.picodiploma.submission4.db.moviedb.MovieRepository;
 import com.dicoding.picodiploma.submission4.models.moviemodels.MovieResults;
-import com.dicoding.picodiploma.submission4.rest.ApiService;
-import com.dicoding.picodiploma.submission4.utils.Config;
+import com.dicoding.picodiploma.submission4.models.moviemodels.MovieWatchlistModel;
 
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-public class MovieViewModel extends ViewModel {
-
+public class MovieViewModel extends AndroidViewModel {
+    private MovieRepository movieRepository;
+    private LiveData<List<MovieResults>> mAllMovie;
+    private LiveData<List<MovieWatchlistModel>> mAllWatchMovie;
     private MutableLiveData<List<MovieResults>> listMovie;
 
-    public LiveData<List<MovieResults>> getListMovie() {
-        if (listMovie == null) {
-            listMovie = new MutableLiveData<>();
-
-            loadMovie();
-        }
-        return listMovie;
+    public MovieViewModel(Application application) {
+        super(application);
+        movieRepository = new MovieRepository(application);
+        mAllMovie = movieRepository.getAllMovie();
+        mAllWatchMovie = movieRepository.getWatchAllMovie();
+        listMovie = movieRepository.getMovie();
     }
 
-    private void loadMovie() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Config.API_MOVIE_BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+    // ===>> Method for favorite movie <<===
 
-        ApiService apiService = retrofit.create(ApiService.class);
+    public LiveData<List<MovieResults>> getIdMovie(int id) {
+        return movieRepository.getIdMovie(id);
+    }
 
-        Call<MovieResponse> call = apiService.getMovie(Config.API_KEY);
-        call.enqueue(new Callback<MovieResponse>() {
-            @Override
-            public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
-                listMovie.setValue(response.body().getResults());
-            }
+    // Method for query all movie data from Room SQLite
+    public LiveData<List<MovieResults>> getAllMovie() {
+        return mAllMovie;
+    }
 
-            @Override
-            public void onFailure(Call<MovieResponse> call, Throwable t) {
-                Log.e("Failure", t.getMessage());
-            }
-        });
+    // Method for insert movie data
+    public void insert(MovieResults movieResults) {
+        movieRepository.insert(movieResults);
+    }
+
+    // Method for Delete all movie data
+    public void deleteAllMovie() {
+        movieRepository.deleteAllMovie();
+    }
+
+    // Method for Delete selected movie data
+    public void deleteSelectedMovie(MovieResults movieResults) {
+        movieRepository.deletedSelectedMovie(movieResults);
+    }
+
+
+    // ===>> Method for watchlist movie <<===
+
+    public LiveData<List<MovieWatchlistModel>> getIdWatchMovie(int id) {
+        return movieRepository.getWatchIdMovie(id);
+    }
+
+    public LiveData<List<MovieWatchlistModel>> getAllWatchMovie() {
+        return mAllWatchMovie;
+    }
+
+    public void insertWatchMovie(MovieWatchlistModel movieWatchlistModel) {
+        movieRepository.mWachInsert(movieWatchlistModel);
+    }
+
+    public void deleteSelectedWatchMovie(MovieWatchlistModel movieWatchlistModel) {
+        movieRepository.mDeletedSelectedWatch(movieWatchlistModel);
+    }
+
+    // ===>> Method for get movie data from WebService <<===
+    public LiveData<List<MovieResults>> getMovieData() {
+        return listMovie;
     }
 }

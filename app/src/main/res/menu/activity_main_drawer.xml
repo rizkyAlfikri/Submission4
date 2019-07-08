@@ -6,33 +6,41 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_movie"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/movie" />
-        <item
-            android:id="@+id/nav_tvshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/tv_show" />
-        <item
-            android:id="@+id/nav_movie_wachlist"
-            android:icon="@drawable/ic_bookmark_black_24dp"
-            android:title="@string/movie_watchlist" />
     </group>
 
-    <item android:title="@string/communicate">
+    <item android:title="@string/movie">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
+                android:id="@+id/nav_movie"
+                android:icon="@drawable/ic_movie_black_24dp"
+                android:title="@string/movie" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                android:id="@+id/nav_movie_favorite"
+                android:icon="@drawable/ic_favorite"
+                android:title="@string/movie_favorite" />
+            <item
+                android:id="@+id/nav_movie_watchlist"
+                android:icon="@drawable/ic_bookmark_black_24dp"
+                android:title="@string/movie_watchlist" />
         </menu>
     </item>
 
+    <item android:title="@string/tv_show">
+        <menu>
+            <item
+                android:id="@+id/nav_tvshow"
+                android:icon="@drawable/ic_live_tv_black_24dp"
+                android:title="@string/tv_show" />
+            <item
+                android:id="@+id/nav_tvshow_favorite"
+                android:icon="@drawable/ic_favorite"
+                android:title="@string/tv_show_favorite" />
+            <item
+                android:id="@+id/nav_tvshow_watchlist"
+                android:icon="@drawable/ic_bookmark_black_24dp"
+                android:title="@string/tv_show_watchlist" />
+        </menu>
+    </item>
 </menu>

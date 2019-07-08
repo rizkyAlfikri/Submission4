@@ -4,11 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.HomeFragment">
+    tools:context=".fragments.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/progress_bar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_movie"
+            app:layout_constraintEnd_toEndOf="@+id/rv_movie"
+            app:layout_constraintStart_toStartOf="@+id/rv_movie"
+            app:layout_constraintTop_toTopOf="@+id/rv_movie" />
 
         <TextView
             android:id="@+id/txt_movie"
@@ -17,7 +28,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:text="@string/movie_catalog"
+            android:text="@string/movie"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +38,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_movie"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="264dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
@@ -35,6 +46,45 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_movie"
-            tools:listitem="@layout/item_movie" />
+            tools:listitem="@layout/item_home" />
+
+        <TextView
+            android:id="@+id/txt_tvshow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/tv_show"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_movie" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_tvshow"
+            app:layout_constraintEnd_toEndOf="@+id/rv_tvshow"
+            app:layout_constraintStart_toStartOf="@+id/rv_tvshow"
+            app:layout_constraintTop_toTopOf="@+id/rv_tvshow" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_tvshow"
+            android:layout_width="match_parent"
+            android:layout_height="264dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_tvshow"
+            tools:listitem="@layout/item_home" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

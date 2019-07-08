@@ -7,13 +7,12 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
 @Entity(tableName = "tmovie")
 public class MovieResults implements Parcelable {
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey()
     @ColumnInfo(name = "id")
     @SerializedName("id")
     private int id;
@@ -53,113 +52,85 @@ public class MovieResults implements Parcelable {
     @ColumnInfo(name = "isFavorite")
     private boolean isFavorite;
 
-    @ColumnInfo(name = "isWatchlist")
-    private boolean isWatchlist;
-
-    public void setOverview(String overview) {
-        this.overview = overview;
-    }
-
-    public String getOverview() {
-        return overview;
-    }
-
-    public void setOriginalLanguage(String originalLanguage) {
-        this.originalLanguage = originalLanguage;
-    }
-
-    public String getOriginalLanguage() {
-        return originalLanguage;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
-    }
-
-    public String getPosterPath() {
-        return posterPath;
-    }
-
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public String getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setVoteAverage(double voteAverage) {
-        this.voteAverage = voteAverage;
-    }
-
-    public double getVoteAverage() {
-        return voteAverage;
-    }
-
-    public void setPopularity(double popularity) {
-        this.popularity = popularity;
-    }
-
-    public double getPopularity() {
-        return popularity;
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public int getId() {
-        return id;
+    public String getOverview() {
+        return overview;
     }
 
-    public void setVoteCount(int voteCount) {
-        this.voteCount = voteCount;
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
+
+    public String getOriginalLanguage() {
+        return originalLanguage;
+    }
+
+    public void setOriginalLanguage(String originalLanguage) {
+        this.originalLanguage = originalLanguage;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getPosterPath() {
+        return posterPath;
+    }
+
+    public void setPosterPath(String posterPath) {
+        this.posterPath = posterPath;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public double getVoteAverage() {
+        return voteAverage;
+    }
+
+    public void setVoteAverage(double voteAverage) {
+        this.voteAverage = voteAverage;
+    }
+
+    public double getPopularity() {
+        return popularity;
+    }
+
+    public void setPopularity(double popularity) {
+        this.popularity = popularity;
     }
 
     public int getVoteCount() {
         return voteCount;
     }
 
-    public boolean getIsFavorite() {
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
+    }
+
+    public boolean isFavorite() {
         return isFavorite;
     }
 
     public void setFavorite(boolean favorite) {
         isFavorite = favorite;
     }
-
-    public boolean getIsWatchlist() {
-        return isWatchlist;
-    }
-
-    public void setWatchlist(boolean watchlist) {
-        isWatchlist = watchlist;
-    }
-
-    @Override
-    public String toString() {
-        return
-                "MovieResults{" +
-                        "overview = '" + overview + '\'' +
-                        ",original_language = '" + originalLanguage + '\'' +
-                        ",title = '" + title + '\'' +
-                        ",poster_path = '" + posterPath + '\'' +
-                        ",release_date = '" + releaseDate + '\'' +
-                        ",vote_average = '" + voteAverage + '\'' +
-                        ",popularity = '" + popularity + '\'' +
-                        ",id = '" + id + '\'' +
-                        ",vote_count = '" + voteCount + '\'' +
-                        "}";
-    }
-
 
     @Override
     public int describeContents() {
@@ -178,7 +149,6 @@ public class MovieResults implements Parcelable {
         dest.writeDouble(this.popularity);
         dest.writeInt(this.voteCount);
         dest.writeByte(this.isFavorite ? (byte) 1 : (byte) 0);
-        dest.writeByte(this.isWatchlist ? (byte) 1 : (byte) 0);
     }
 
     public MovieResults() {
@@ -195,10 +165,9 @@ public class MovieResults implements Parcelable {
         this.popularity = in.readDouble();
         this.voteCount = in.readInt();
         this.isFavorite = in.readByte() != 0;
-        this.isWatchlist = in.readByte() != 0;
     }
 
-    public static final Parcelable.Creator<MovieResults> CREATOR = new Parcelable.Creator<MovieResults>() {
+    public static final Creator<MovieResults> CREATOR = new Creator<MovieResults>() {
         @Override
         public MovieResults createFromParcel(Parcel source) {
             return new MovieResults(source);

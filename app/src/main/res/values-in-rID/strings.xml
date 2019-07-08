@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Submission	4</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Ubah Pengaturan Bahasa</string>
+
+    <string name="menu_home">Halaman Utama</string>
+    <string name="movie">Film </string>
+    <string name="watchlist">Tambahkan Ke\nDaftar Tonton</string>
+    <string name="unWatchlist">Hapus Dari \nDaftar Tonton</string>
+    <string name="tv_show">Acara Tv </string>
+    <string name="tvshow">Acara Tv</string>
+    <string name="poster_movie">Gambar Film </string>
+    <string name="your_watchlist">Daftar Tontonan Anda</string>
+    <string name="order_ticket_now">Pesan Tiket Sekarang</string>
+    <string name="movie_watchlist">Daftar Tontonan Film</string>
+    <string name="overview">Ikhtisar </string>
+    <string name="release_date">Tanggal Rilis</string>
+    <string name="original_language">Bahasa</string>
+    <string name="your_favorite">Favorit Anda</string>
+    <string name="movie_favorite">Film Favorite</string>
+    <string name="your_favorite_tv_show">Acara Tv Favorit Anda</string>
+    <string name="clear_all_movie">Hapus Semua Film Favorite</string>
+    <string name="add_favorite">telah ditambahkan ke daftar favorit </string>
+    <string name="add_watclist">telah ditambahkan ke daftar tontonan</string>
+    <string name="remove_favorite">telah dihapus dari daftar favorit</string>
+    <string name="remove_watchlist">telah dihapus dari daftar tontonan</string>
+    <string name="favorite">Tambahkan Ke\nFavorit</string>
+    <string name="unfavorite">Hapus Dari \nFavorit</string>
+    <string name="snackbar_delete">Apakah anda yakin akan menghaps ini?</string>
+    <string name="undo">Batalkan</string>
+    <string name="dialog_title">Hapus Semua Acara Tv Favorit</string>
+    <string name="dialog_message">Apakah Anda yakin ingin menghapus semua film dalam daftar favorit Anda?</string>
+    <string name="dialog_message_tv">Anda yakin ingin menghapus semua acara tv di daftar favorit Anda?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Batalkan</string>
+    <string name="clear_all_movie_data">Menghapus semua data film favorit…</string>
+    <string name="movies">Film</string>
+    <string name="tv_show_favorite">Acara Tv Favorit</string>
+    <string name="delete_all_tv_show">Hapus Semua Acara Tv</string>
+    <string name="clear_all_tv_show">Menghapus semua data acara Tv favorite…</string>
+    <string name="tv_show_watchlist">Daftar Tontonan Acara Tv</string>
+    <string name="coming_soon">Fitur ini akan segera hadir</string>
+    <string name="dicoding_movie_catalog">Dicoding Movie Catalog</string>
+    <string name="https_www_dicoding_com">https://www.dicoding.com</string>
+
+
+</resources>

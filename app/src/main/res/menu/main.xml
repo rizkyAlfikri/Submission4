@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/clear_all_movie"
         android:orderInCategory="100"
+        android:title="@string/clear_all_movie"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/clear_all_tv"
+        android:orderInCategory="100"
+        android:title="@string/delete_all_tv_show"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_change_settings"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
 </menu>
